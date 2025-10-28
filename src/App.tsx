@@ -1,20 +1,29 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
+interface Guest {
+  nombre: string;
+  asientos: number;
+  codigo: string;
+}
+
 function App() {
   const [guestName, setGuestName] = useState('');
+  const [guestSeats, setGuestSeats] = useState(0);
   const [isValidGuest, setIsValidGuest] = useState(false);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    const guest = urlParams.get('guest');
+    const guestCode = urlParams.get('guest');
 
-    if (guest) {
+    if (guestCode) {
       fetch('/wedding-invitation/guests.json')
         .then(response => response.json())
         .then(data => {
-          if (data.guests.includes(guest)) {
-            setGuestName(guest);
+          const guest = data.guests.find((g: Guest) => g.codigo === guestCode);
+          if (guest) {
+            setGuestName(guest.nombre);
+            setGuestSeats(guest.asientos);
             setIsValidGuest(true);
           }
         });
@@ -38,6 +47,7 @@ function App() {
       <main>
         <p className="guest-greeting">Hola, {guestName}!</p>
         <p>Tenemos el placer de invitarte a nuestra boda.</p>
+        <p>Dispones de {guestSeats} asientos.</p>
         <h2>Maria & Juan</h2>
         <div className="event-details">
           <p><strong>Fecha:</strong> Sábado, 14 de Diciembre de 2024</p>
