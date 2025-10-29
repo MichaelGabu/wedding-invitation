@@ -48,7 +48,7 @@ function App() {
         <p className="guest-greeting">Hola, {guestName}!</p>
         <p>Tenemos el placer de invitarte a nuestra boda.</p>
         <p>Dispones de {guestSeats} asientos.</p>
-        <h2>Maria & Juan</h2>
+        <h2>Natalia & Michael</h2>
         <div className="event-details">
           <p><strong>Fecha:</strong> Sábado, 14 de Diciembre de 2024</p>
           <p><strong>Hora:</strong> 18:00</p>
