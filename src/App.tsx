@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import { db } from './firebase';
+import { doc, getDoc } from 'firebase/firestore';
 
 interface Guest {
   nombre: string;
@@ -17,32 +19,21 @@ function App() {
     const guestCode = urlParams.get('guest');
 
     if (guestCode) {
-      fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vTQEpBrp4VMuMy9e9tf_NzbOQ_awlIpQJat5uZcrvozifEzKkynMUQW24htv7aL8pjjZ3cVAyRYeWkc/pub?gid=0&single=true&output=csv')
-        .then(response => response.text())
-        .then(csvText => {
-          const lines = csvText.split('\n');
-          const headers = lines[0].split(',').map(h => h.trim());
-          const guests: Guest[] = [];
-          for (let i = 1; i < lines.length; i++) {
-            const values = lines[i].split(',').map(v => v.trim());
-            const guest: any = {};
-            for (let j = 0; j < headers.length; j++) {
-              guest[headers[j]] = values[j];
-            }
-            guests.push({
-              ...guest,
-              asientos: parseInt(guest.asientos, 10)
-            } as Guest);
-          }
+      const getGuest = async () => {
+        const docRef = doc(db, 'guests', guestCode);
+        const docSnap = await getDoc(docRef);
 
-          const guest = guests.find(g => g.codigo === guestCode);
+        if (docSnap.exists()) {
+          const guestData = docSnap.data() as Guest;
+          setGuestName(guestData.nombre);
+          setGuestSeats(guestData.asientos);
+          setIsValidGuest(true);
+        } else {
+          setIsValidGuest(false);
+        }
+      };
 
-          if (guest) {
-            setGuestName(guest.nombre);
-            setGuestSeats(guest.asientos);
-            setIsValidGuest(true);
-          }
-        });
+      getGuest();
     }
   }, []);
 
