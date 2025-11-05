@@ -6,7 +6,7 @@
     --white-color: #FFFFFF
     --black-color: #000000
 
-    --lateral-width: 3rem
+    --lateral-width: clamp(1.5rem, 5vw, 3rem)
     --container-width: 600px
 
     --space-xs: 0.25rem
@@ -27,7 +27,8 @@
 
     --body-font-family: 'Cormorant Upright', serif
     --heading-font-family: 'Cormorant Upright', serif
-    
+    --cursive-font-family: 'Imperial Script', cursive
+
 html
     font-size: 16px
     text-rendering: geometricPrecision
@@ -42,6 +43,9 @@ body
     color: var(--text-color)
     background-color: var(--bg-color)
     text-align: center
+
+    @media (width > 767px)
+        background-color: var(--secondary-color)
 
 *
     margin: 0
@@ -59,13 +63,29 @@ p
     margin-bottom: 1lh
     text-wrap: pretty
 
-a 
+a
     text-decoration: none
     color: var(--text-color)
 
 img
     max-width: 100%
     height: auto
+
+.invitation
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    min-height: 100dvh
+    width: 100%
+    overflow-x: hidden
+
+    @media (width > 767px)
+        background-color: var(--bg-color, white)
+        margin: 2rem auto
+        box-shadow: 0 0 1rem hsl(from var(--text-color) h s l / 0.1)
+        border-radius: 2rem
+        width: min(100%, var(--container-width))
 
 .section
     padding-inline: var(--lateral-width)
@@ -76,4 +96,3 @@ img
 
     .section__container
         width: min(var(--container-width), 100%)
-        

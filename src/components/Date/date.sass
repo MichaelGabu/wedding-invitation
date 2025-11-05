@@ -1,0 +1,79 @@
+.date
+    &__container
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        gap: var(--space-md)
+
+    &__row
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: var(--space-md)
+        container-type: inline-size
+    
+    &__box
+        width: 3.75rem
+        flex: 0 0 3.75rem
+        font-weight: 400
+
+        &-day
+            font-size: var(--h6-font-size)
+            font-weight: inherit
+            line-height: 1.5
+            text-transform: capitalize
+
+        &-date
+            font-size: var(--h1-font-size)
+            font-weight: inherit
+            line-height: 1
+            position: relative
+
+            > span
+                z-index: 1
+
+            &-highlight
+                position: absolute
+                top: 67%
+                left: 50%
+                translate: -50% -50%
+                width: 110%
+                height: auto
+                z-index: 0
+        
+        &--before-yesterday,
+        &--after-tomorrow
+            opacity: 0.15
+            filter: blur(2px)
+
+        &--yesterday,
+        &--tomorrow
+            opacity: 0.5
+            filter: blur(1px)
+
+        &--d
+            font-weight: 700
+    
+    &__month
+        font-size: var(--h3-font-size)
+        font-weight: 700
+
+    &__year
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: var(--h4-font-size)
+        font-weight: 400
+        gap: var(--space-sm)
+        line-height: 1
+
+        &:before,
+        &:after
+            content: ''
+            display: block
+            width: 3rem
+            height: 1px
+            background-color: var(--text-color)
+        
+            

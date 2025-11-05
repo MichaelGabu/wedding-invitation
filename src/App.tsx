@@ -10,6 +10,7 @@ import Itinerary from './components/Itinerary';
 import Parents from './components/Parents';
 import Confirmation from './components/Confirmation';
 import Footer from './components/Footer';
+import Divider from './components/Divider';
 
 interface Guest {
     nombre: string;
@@ -18,8 +19,7 @@ interface Guest {
 }
 
 const data = {
-    title: 'Natalia + Michael',
-    subtitle: 'Nuestra Boda',
+    title: 'Nuestra Boda',
     date: '2026-03-01 15:00',
     place: 'Finca La Campana, Sevilla',
     prayer: '<p>"El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso. No se comporta con rudeza, no es egoísta, no se enoja fácilmente, no guarda rencor".</p><blockquote>-1 Corintios 13:4-5</blockquote>'
@@ -69,32 +69,40 @@ function App() {
     }, []);
 
     if (isLoading) {
-        return <div className="invitation"><p>Cargando...</p></div>;
+        return <div className="invitation">
+            <section className="section">
+                <div className="section__container">
+                    <p>Cargando...</p>
+                </div>
+            </section>
+        </div>;
     }
 
     if (!isValidGuest) {
         return (
             <div className="invitation">
-                <h2>Invitación no encontrada</h2>
-                <p>Por favor, verifica que el enlace que has utilizado es correcto.</p>
+                <section className="section">
+                    <div className="section__container">
+                        <h2>Invitación no encontrada</h2>
+                        <p>Por favor, verifica que el enlace que has utilizado es correcto.</p>
+                    </div>
+                </section>
             </div>
         );
     }
 
     return (
         <div className="invitation">
-            <section className="section">
+            <section className="section" style={{ display: 'none' }}>
                 <div className="section__container">
                     <p className="guest-greeting">Hola, {guestName}!</p>
                     <p>Dispones de {guestSeats} asientos.</p>
                 </div>
             </section>
-            <Head 
-                title="Natalia + Michael" 
-                subtitle="Nuestra Boda" 
-            />
+            <Head title="Nuestra Boda" />
             <main>
                 <Date date={data.date} /> 
+                <Divider />
                 <Prayer prayer={data.prayer} />
                 <Timer date={data.date} />
                 <Location />

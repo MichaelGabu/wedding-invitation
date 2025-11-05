@@ -1,0 +1,85 @@
+.head
+    padding-top: calc( var(--space-xl, 2rem) * 1.5 )
+    padding-bottom: 0
+
+    &__container
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        gap: var(--space-md, 1rem)
+        position: relative
+
+    &__logo
+        width: min(100%, 340px)
+        display: flex
+        justify-content: center
+        align-items: center
+        aspect-ratio: 5 / 2
+        position: relative
+        margin: auto
+
+        &-image
+            position: absolute
+            width: 150%
+            height: auto
+            display: block
+            max-width: 95vw
+
+    &__title
+        font-size: var(--h2-font-size)
+        font-family: var(--cursive-font-family)
+        font-weight: 400
+        margin: 0
+
+    &__deco
+        position: absolute
+        z-index: 1
+
+        &--top-right
+            top: 0
+            right: 0
+
+            .head__flower
+                position: absolute
+                top: 0
+                right: 0
+                width: 90px
+                z-index: 1
+
+                &-image
+                    width: 100%
+                    translate: 0 -50%
+
+            .head__foliage
+                position: absolute
+                top: 0
+                right: 0
+                width: 190px
+                z-index: 0
+
+                &-image
+                    width: 100%
+                    translate: 50% -60%
+                    transform-origin: center right
+
+        &--bottom-left
+            bottom: 0
+            left: 0
+
+            .head__foliage
+                position: absolute
+                bottom: 0
+                left: 0
+                width: 190px
+                z-index: 0
+
+                &-image
+                    width: 100%
+                    translate: -60% 60%
+                    scale: -1 1
+
+        
+
+    
+        
