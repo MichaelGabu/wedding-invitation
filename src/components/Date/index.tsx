@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { animate, stagger } from 'animejs';
+import React, { useEffect, useRef } from "react";
+import { createScope, utils, animate, onScroll, Scope, stagger } from 'animejs';
 import { format, parseISO } from "date-fns";
 import { es } from 'date-fns/locale';
 import './date.sass';
@@ -39,19 +39,30 @@ const DateComponent: React.FC<DateProps> = ({ date }) => {
     const after_tomorrow = new Date(d);
     after_tomorrow.setDate(d.getDate() + 2);
 
+    const root = useRef<HTMLDivElement>(null);
+    const scope = useRef<Scope | null>(null);
+
     useEffect(() => {
-        // Crear la animación con onScroll
-        animate(['.date__box-day', '.date__box-date'], {
-            opacity: [0, 1],
-            y: [25, 0],
-            duration: 500,
-            delay: stagger(50, {start: 0}),
-            easing: 'easeInOut',
+        scope.current = createScope({ root })
+        scope.current.add(() => {
+            const $boxes = utils.$('.date__box');
+            animate($boxes, {
+                x: [100, 0],
+                // opacity: [0, 1],
+                duration: 1000,
+                delay: stagger(50, { start: 0 } ),
+                easing: 'easeOutQuad',
+                autoplay: onScroll({
+                    debug: true,
+                })
+            });
         });
-    }, []); // Ejecutar cada vez que cambie el scroll
+
+        return () => scope.current?.revert();
+    }, []);
     
     return (
-        <section className="section date">
+        <section className="section date" ref={root}>
             <div className="section__container date__container">
                 <div className="date__row">
                     {dateBox(before_yesterday, 'date__box--before-yesterday', false)}
