@@ -1,10 +1,41 @@
+import React, { useEffect, useRef } from "react";
+import { createScope, utils, animate, onScroll, Scope } from 'animejs';
 import './divider.sass';
 
 const Divider: React.FC = () => {
+    const root = useRef<HTMLDivElement>(null);
+    const scope = useRef<Scope | null>(null);
+
+    useEffect(() => {
+        scope.current = createScope({ root })
+        scope.current.add(() => {
+            const $divider = utils.$('.divider__container');
+            utils.set($divider, {
+                opacity: 0,
+                scale: 0,
+            });
+            animate($divider, {
+                opacity: [0, 1],
+                scale: [0, 1],
+                duration: 1000,
+                delay: 0,
+                easing: 'easeOutQuad',
+                autoplay: onScroll({
+                    enter: 'bottom-=2% top',
+                    leave: 'top+=2% bottom',
+                    debug: false,
+                })
+            });
+        });
+
+        return () => scope.current?.revert();
+    }, []);
+    
     return (
-        <div className="divider">
+        <div className="divider" ref={root}>
             <div className="divider__container">
                 <svg width="191" height="36" viewBox="0 0 191 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <title>Suzuka</title>
                     <path d="M29.7008 18.7059C29.8158 19.5309 29.2418 20.2929 28.4178 20.4079C27.5928 20.5239 26.8308 19.9499 26.7148 19.1249C26.5998 18.3009 27.1738 17.5379 27.9988 17.4229C28.8228 17.3069 29.5858 17.8819 29.7008 18.7059Z" fill="var(--primary-color)"/>
                     <path d="M33.9248 31.5549C34.0398 32.3799 33.4658 33.1419 32.6418 33.2579C31.8158 33.3739 31.0548 32.7989 30.9388 31.9749C30.8228 31.1499 31.3978 30.3879 32.2228 30.2719C33.0468 30.1569 33.8098 30.7309 33.9248 31.5549Z" fill="var(--primary-color)"/>
                     <path d="M44.3468 34.2739C44.4628 35.0989 43.8888 35.8609 43.0638 35.9769C42.2388 36.0929 41.4768 35.5179 41.3608 34.6929C41.2448 33.8679 41.8198 33.1059 42.6448 32.9899C43.4688 32.8749 44.2318 33.4489 44.3468 34.2739Z" fill="var(--primary-color)"/>

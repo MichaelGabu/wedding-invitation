@@ -44,13 +44,15 @@
         
         &--before-yesterday,
         &--after-tomorrow
-            opacity: 0.15
-            filter: blur(2px)
+            > div
+                opacity: 0.15
+                filter: blur(2px)
 
         &--yesterday,
         &--tomorrow
-            opacity: 0.5
-            filter: blur(1px)
+            > div
+                opacity: 0.5
+                filter: blur(1px)
 
         &--d
             font-weight: 700

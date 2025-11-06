@@ -46,15 +46,48 @@ const DateComponent: React.FC<DateProps> = ({ date }) => {
         scope.current = createScope({ root })
         scope.current.add(() => {
             const $boxes = utils.$('.date__box');
+            const $month = utils.$('.date__month');
+            const $year = utils.$('.date__year');
+
+            utils.set($boxes, {
+                y: 100,
+                opacity: 0,
+                filter: 'blur(2px)'
+            });
             animate($boxes, {
-                x: [100, 0],
-                // opacity: [0, 1],
+                y: [100, 0],
+                opacity: [0, 1],
+                filter: ['blur(2px)', 'blur(0px)'],
                 duration: 1000,
-                delay: stagger(50, { start: 0 } ),
+                delay: stagger(100, { start: 0 } ),
                 easing: 'easeOutQuad',
                 autoplay: onScroll({
-                    debug: true,
+                    enter: 'bottom-=10% top',
+					leave: 'top+=10% bottom',
+                    debug: false,
                 })
+            });
+
+            utils.set($month, {
+                opacity: 0,
+                y: 50
+            });
+            animate($month, {
+                opacity: [0, 1],
+                y: [50, 0],
+                delay: 350,
+                duration: 750
+            });
+
+            utils.set($year, {
+                opacity: 0,
+                y: 50
+            });
+            animate($year, {
+                opacity: [0, 1],
+                y: [50, 0],
+                delay: 450,
+                duration: 750
             });
         });
 

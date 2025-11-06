@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { animate } from 'animejs';
+import React, { useEffect, useRef } from 'react';
+import { animate, createScope, utils, Scope } from 'animejs';
 import './head.sass';
 import logo from '../../assets/Logo-Natalia-y-Michael.svg';
 import foliage from '../../assets/images/head-foliage.webp';
@@ -10,59 +10,100 @@ interface HeadProps {
 }
 
 const Head: React.FC<HeadProps> = ({ title }) => {
+    const root = useRef<HTMLDivElement>(null);
+    const scope = useRef<Scope | null>(null);
+
     useEffect(() => {
-        animate('.head__logo-image', {
-            filter: ['blur(1rem)', 'blur(0rem)'],
-            delay: 0,
-            duration: 750
-        });
+        scope.current = createScope({ root })
+        scope.current.add(() => {
+            const $logoImage = utils.$('.head__logo-image');
+            const $title = utils.$('.head__title');
+            const $divider = utils.$('.head__divider');
+            const $flowerImageTopRight = utils.$('.head__deco--top-right .head__flower-image');
+            const $foliageImageTopRight = utils.$('.head__deco--top-right .head__foliage-image');
+            const $foliageImageBottomLeft = utils.$('.head__deco--bottom-left .head__foliage-image');
 
-        animate('.head__title', {
-            opacity: [0, 1],
-            y: [25, 0],
-            delay: 250,
-            duration: 750
-        });
+            utils.set($logoImage, {
+                filter: 'blur(2rem)'
+            });
+            animate($logoImage, {
+                filter: ['blur(2rem)', 'blur(0rem)'],
+                delay: 0,
+                duration: 1050
+            });
 
-        animate('.head__divider', {
-            opacity: [0, 1],
-            y: [10, 0],
-            delay: 300,
-            duration: 750
-        });
+            utils.set($title, {
+                opacity: 0,
+                y: 25
+            });
+            animate($title, {
+                opacity: [0, 1],
+                y: [25, 0],
+                delay: 250,
+                duration: 750
+            });
 
-        animate('.head__deco--top-right .head__flower-image', {
-            filter: ['blur(1rem)', 'blur(0rem)'],
-            scale: [0, 1],
-            rotate: [45, 0],
-            ease: 'easeInOut',
-            delay: 900,
-            duration: 500
-        });
+            utils.set($divider, {
+                opacity: 0,
+                y: 10
+            });
+            animate($divider, {
+                opacity: [0, 1],
+                y: [10, 0],
+                delay: 300,
+                duration: 750
+            });
 
-        animate('.head__deco--top-right .head__foliage-image', {
-            filter: ['blur(1rem)', 'blur(0rem)'],
-            scale: [0, 1],
-            x: [100, 0],
-            y: [100, 0],
-            ease: 'easeInOut',
-            delay: 100,
-            duration: 900
-        });
+            utils.set($flowerImageTopRight, {
+                filter: 'blur(1rem)',
+                scale: 0,
+                rotate: 45
+            });
+            animate($flowerImageTopRight, {
+                filter: ['blur(1rem)', 'blur(0rem)'],
+                scale: [0, 1],
+                rotate: [45, 0],
+                ease: 'easeInOut',
+                delay: 900,
+                duration: 500
+            });
 
-        animate('.head__deco--bottom-left .head__foliage-image', {
-            filter: ['blur(1rem)', 'blur(0rem)'],
-            scale: [0, 1],
-            x: [100, 0],
-            y: [100, 0],
-            ease: 'easeInOut',
-            delay: 300,
-            duration: 900
+            utils.set($foliageImageTopRight, {
+                filter: 'blur(1rem)',
+                scale: 0,
+                x: 100,
+                y: 100
+            });
+            animate($foliageImageTopRight, {
+                filter: ['blur(1rem)', 'blur(0rem)'],
+                scale: [0, 1],
+                x: [100, 0],
+                y: [100, 0],
+                ease: 'easeInOut',
+                delay: 100,
+                duration: 900
+            });
+
+            utils.set($foliageImageBottomLeft, {
+                filter: 'blur(1rem)',
+                scale: 0,
+                x: 100,
+                y: 100
+            });
+            animate($foliageImageBottomLeft, {
+                filter: ['blur(1rem)', 'blur(0rem)'],
+                scale: [0, 1],
+                x: [100, 0],
+                y: [100, 0],
+                ease: 'easeInOut',
+                delay: 300,
+                duration: 900
+            });
         });
     }, []);
 
     return (
-        <header className="section head">
+        <header className="section head" ref={root}>
             <div className="section__container head__container">
                 <figure className="head__logo">
                     <img src={logo} alt="Logo Natalia y Michael" className="head__logo-image" />

@@ -104,6 +104,7 @@ function App() {
                 <Date date={data.date} /> 
                 <Divider />
                 <Prayer prayer={data.prayer} />
+                <Divider />
                 <Timer date={data.date} />
                 <Location />
                 <DressCode />
