@@ -5,7 +5,7 @@
     display: inline-flex
     gap: .5em
     font-family: var(--body-font-family)
-    font-size: var(--body-font-size)
+    font-size: var(--body-large-font-size)
     line-height: 1.5
     justify-content: center
     align-items: center
@@ -28,7 +28,7 @@
         position: absolute
         inset: 0
         background-image: var(--button-bg)
-        z-index: -1
+        z-index: 0
         translate: 0 25%
         scale: 0.85
         filter: blur(1rem)
@@ -41,5 +41,18 @@
 
         &:before
             translate: 0 30%
+    
+    &__text
+        position: relative
+        text-shadow: 1px 1px 4px var(--primary-color)
+        z-index: 1
+    
+    & iconify-icon
+        font-size: 1.5em
+        flex: 0 0 1.5rem
+        aspect-ratio: 1 / 1
+        filter: drop-shadow(1px 1px 2px var(--primary-color))
+        position: relative
+        z-index: 1
         
     

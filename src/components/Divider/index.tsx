@@ -11,13 +11,14 @@ const Divider: React.FC = () => {
         scope.current.add(() => {
             const $divider = utils.$('.divider__container');
             utils.set($divider, {
+                clipPath: 'polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%)',
                 opacity: 0,
-                scale: 0,
             });
             animate($divider, {
-                opacity: [0, 1],
-                scale: [0, 1],
-                duration: 1000,
+                clipPath: ['polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%)', 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'],
+                maskPosition: [0, 'center'],
+                opacity: [0, 1, 1, 1],
+                duration: 4000,
                 delay: 0,
                 easing: 'easeOutQuad',
                 autoplay: onScroll({
