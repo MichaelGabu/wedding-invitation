@@ -11,6 +11,7 @@ import Parents from './components/Parents';
 import Confirmation from './components/Confirmation';
 import Footer from './components/Footer';
 import Divider from './components/Divider';
+import PhotoMarriageProposal from './assets/images/marriage-proposal.webp';
 
 interface Guest {
     nombre: string;
@@ -107,8 +108,9 @@ function App() {
                 <Divider />
                 <Timer date={data.date} />
                 <Location />
+                <Divider />
                 <DressCode />
-                <Photo src="https://picsum.photos/id/235/200/300" alt="Argolla" />
+                <Photo src={PhotoMarriageProposal} alt="Propuesta de Matrimonio" />
                 <Itinerary />
                 <Parents />
                 <Photo src="https://picsum.photos/id/235/200/300" alt="Argolla" />

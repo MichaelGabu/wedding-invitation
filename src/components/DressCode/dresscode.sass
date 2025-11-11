@@ -1,0 +1,64 @@
+.dresscode
+    &__container
+        gap: var(--space-lg, 2rem)
+        display: flex
+        flex-direction: column
+        align-items: center
+
+    &__title
+        font-size: var(--h2-font-size)
+        font-weight: 700
+        margin: 0
+        
+    &__subtitle
+        font-size: var(--h4-font-size)
+        font-weight: 500
+        margin: 0
+    
+    &__text
+        font-size: var(--p-font-size)
+        font-weight: 400
+        margin: 0
+    
+    &__row
+        display: flex
+        justify-content: center
+        align-items: start
+        gap: var(--space-md, 1rem)
+        width: 100%
+    
+    &__item
+        flex: 140px
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: start
+        gap: var(--space-md, 1rem)
+    
+    &__icon
+        position: relative
+
+        &-stain
+            position: absolute
+            top: 50%
+            left: 50%
+            width: 150%
+            height: auto
+            translate: -50% -50%
+            z-index: 0
+            max-width: unset
+            opacity: 0.2
+
+        & iconify-icon
+            position: relative
+            z-index: 1
+            font-size: 4rem
+            color: var(--primary-color)
+    
+    &__separator
+        border: none
+        width: 1px
+        height: 4rem
+        align-self: center
+        background-color: var(--text-color)
+        display: block
