@@ -2,17 +2,30 @@
     &__container
         display: grid
         gap: var(--space-lg)
-    
+        position: relative
+
+    &__texture
+        position: absolute
+        top: 50%
+        left: 50%
+        translate: -50% -50%
+        z-index: 0
+        width: min(140%, 520px)
+        height: auto
+        opacity: .1
+
     &__head
         display: grid
         gap: var(--space-xs)
         width: 100%
+        position: relative
+        z-index: 1
 
     &__title
         font-size: var(--h2-font-size)
         font-weight: 700
         margin: 0
-    
+
     &__list
         display: grid
         gap: var(--space-md)
@@ -22,7 +35,26 @@
         border-radius: var(--radius-lg)
         border: 1px solid var(--primary-color)
         list-style: none
-    
+        position: relative
+        margin-top: 2rem
+        z-index: 1
+        width: min(100%, 400px)
+        margin-inline: auto
+
+    &__ornament-top
+        width: 6rem
+        height: auto
+        position: absolute
+        top: 0
+        left: 50%
+        translate: -50% -85%
+
+    &__ornament-bottom
+        position: absolute
+        bottom: 0
+        left: 50%
+        translate: -50% 105%
+
     &__item
         display: grid
         gap: var(--space-md)
@@ -34,7 +66,7 @@
         font-size: var(--h5-font-size)
         font-weight: 400
         display: block
-    
+
     &__icon
         position: relative
 
@@ -45,14 +77,15 @@
             translate: -50% -50%
             z-index: 0
             opacity: .5
-        
+
         &-icon
             position: relative
             z-index: 1
-    
+
     &__description
         text-align: left
         font-size: var(--h5-font-size)
         font-weight: 400
         margin: 0
         line-height: 1.25
+        min-width: 0
