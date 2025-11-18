@@ -1,0 +1,47 @@
+.footer
+    &__container
+        display: grid
+        gap: var(--space-xl)
+        position: relative
+    
+    &__rainenvelopes
+        display: grid
+        gap: var(--space-sm)
+        place-items: center
+        position: relative
+
+        &-texture
+            position: absolute
+            top: 50%
+            left: 50%
+            width: min(100%, 15rem)
+            height: auto
+            translate: -50% -50%
+            z-index: 0
+            opacity: 0.3
+
+        &-icon
+            position: relative
+            z-index: 1
+
+            &-icon
+                width: 3.5rem
+                height: auto
+            
+        &-text
+            display: block
+            font-size: var(--h5-font-size)
+            font-weight: 400
+            margin: 0
+            line-height: 1.25
+            position: relative
+            z-index: 1
+    
+    &__prayer
+        p
+            font-size: var(--h5-font-size)
+            margin-bottom: .3em
+            line-height: 1.25
+
+            &:last-child
+                margin-bottom: 0

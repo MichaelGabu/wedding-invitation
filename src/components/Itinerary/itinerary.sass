@@ -29,63 +29,121 @@
     &__list
         display: grid
         gap: var(--space-md)
-        padding-block: var(--space-lg)
-        padding-inline: var(--space-md)
+        padding: 0
         margin: 0
-        border-radius: var(--radius-lg)
-        border: 1px solid var(--primary-color)
         list-style: none
         position: relative
-        margin-top: 2rem
         z-index: 1
-        width: min(100%, 400px)
-        margin-inline: auto
+        width: 100%
 
     &__ornament-top
         width: 6rem
         height: auto
-        position: absolute
-        top: 0
-        left: 50%
-        translate: -50% -85%
+        margin-inline: auto
+        margin-bottom: calc(var(--space-md) * -1)
 
     &__ornament-bottom
-        position: absolute
-        bottom: 0
-        left: 50%
-        translate: -50% 105%
+        position: relative
+        margin-inline: auto
 
     &__item
         display: grid
-        gap: var(--space-md)
-        grid-template-columns: .5fr 4rem .5fr
-        align-items: center
-
-    &__time
-        text-align: right
-        font-size: var(--h5-font-size)
-        font-weight: 400
-        display: block
-
-    &__icon
+        gap: var(--space-xl)
+        grid-template-columns: .5fr .5fr
+        place-items: center stretch
         position: relative
 
-        &-shadow
+        &:after
+            content: ''
+            position: absolute
+            top: calc(var(--space-sm) * -1)
+            bottom: calc(var(--space-sm) * -1)
+            left: 50%
+            translate: -50% 0%
+            width: 0
+            height: auto
+            z-index: 0
+            border-left: 1px dashed var(--primary-color)
+        
+        &:first-child
+            &:after
+                top: 50%
+
+        &:last-child
+            &:after
+                bottom: 50%
+
+        &:nth-child(odd)
+            .itinerary__item-content
+                order: 2
+                text-align: left
+                place-items: center start
+
+            .itinerary__item-icon
+                order: 1
+                justify-self: end
+
+        &-content
+            text-align: right
+            display: grid
+            gap: var(--space-sm)
+            place-items: center end
+
+        &-head
+            display: grid
+            gap: 0
+            width: 100%
+
+        &-title
+            font-size: var(--h5-font-size)
+            font-weight: 700
+            line-height: 1.25
+            margin: 0
+
+        &-time
+            font-size: var(--h6-font-size)
+            font-weight: 500
+            line-height: 1
+            display: block
+
+        &-description
+            font-size: var(--small-font-size)
+            font-weight: 400
+            line-height: 1.2
+            margin: 0
+            width: min(100%, 127px)
+            min-width: 0
+
+        &-separator
+            width: 12px
+            height: auto
             position: absolute
             top: 50%
             left: 50%
             translate: -50% -50%
-            z-index: 0
-            opacity: .5
+            z-index: 1
 
         &-icon
             position: relative
-            z-index: 1
+            display: flex
 
-    &__description
-        text-align: left
-        font-size: var(--h5-font-size)
-        font-weight: 400
-        margin: 0
-        line-height: 1.25
-        min-width: 0
+            &-wrapper
+                position: relative
+                z-index: 1
+                display: flex
+                align-items: center
+                justify-content: center
+                width: 3.5rem
+                aspect-ratio: 1 / 1
+
+            &-shadow
+                position: absolute
+                top: 50%
+                left: 50%
+                translate: -50% -50%
+                z-index: 0
+                opacity: .5
+
+            &-icon
+                position: relative
+                z-index: 1

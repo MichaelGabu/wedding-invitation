@@ -1,4 +1,4 @@
-import { Icon } from '@iconify-icon/react';
+import { IconDress, IconTie } from '../Icons';
 import './dresscode.sass';
 import stain from '../../assets/images/stain-dress-code.webp';
 
@@ -11,7 +11,7 @@ const DressCode = () => {
                     <div className="dresscode__item">
                         <div className="dresscode__icon">
                             <img src={stain} alt="Stain" className="dresscode__icon-stain" />
-                            <Icon icon="hugeicons:dress-03" />
+                            <IconDress />
                         </div>
                         <h4 className="dresscode__subtitle">Ellas divinas</h4>
                         <p className="dresscode__text">Vestido formal</p>
@@ -20,7 +20,7 @@ const DressCode = () => {
                     <div className="dresscode__item">
                         <div className="dresscode__icon">
                             <img src={stain} alt="Stain" className="dresscode__icon-stain" />
-                            <Icon icon="hugeicons:bow-tie" />
+                            <IconTie />
                         </div>
                         <h4 className="dresscode__subtitle">Ellos guapos</h4>
                         <p className="dresscode__text">

@@ -12,6 +12,7 @@ import Confirmation from './components/Confirmation';
 import Footer from './components/Footer';
 import Divider from './components/Divider';
 import PhotoMarriageProposal from './assets/images/marriage-proposal.webp';
+import PhotoLove from './assets/images/love.webp';
 
 interface Guest {
     nombre: string;
@@ -112,11 +113,13 @@ function App() {
                 <DressCode />
                 <Photo src={PhotoMarriageProposal} alt="Propuesta de Matrimonio" />
                 <Itinerary />
+                <Divider />
                 <Parents />
-                <Photo src="https://picsum.photos/id/235/200/300" alt="Argolla" />
+                <Photo src={PhotoLove} alt="Amor" style={{ objectPosition: 'top' }} />
                 <Confirmation />
             </main>
             <Footer />
+            <Divider />
         </div>
     );
 }
