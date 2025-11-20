@@ -1,13 +1,39 @@
 .divider 
     position: relative
     width: 100%
+    display: flex
+    justify-content: center
 
     &__container 
         width: 100%
         display: flex
         justify-content: center
         align-items: center
+        position: relative
 
         svg 
             max-width: 100%
             height: auto
+
+        img
+            max-width: 100%
+            height: auto
+    
+    &--flower 
+        .divider__container 
+            width: 90%
+    
+    &--flower2 
+        .divider__container 
+            width: 90%
+
+    &--flower3 
+        .divider__container 
+            width: 90%
+
+    &--flower4 
+        overflow: hidden
+        
+        .divider__container 
+            translate: 0 1rem
+            width: 90%

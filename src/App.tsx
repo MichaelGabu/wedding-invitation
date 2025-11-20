@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Envelope from './components/Envelope';
 import Head from './components/Head';
 import Date from './components/Date';
 import Prayer from './components/Prayer';
@@ -93,34 +94,37 @@ function App() {
         );
     }
 
+    const openInvitation = () => {
+        document.querySelector('.envelope')?.classList.add('envelope--open');
+        document.querySelector('.invitation')?.classList.add('invitation--open');
+    }
+
     return (
-        <div className="invitation">
-            <section className="section" style={{ display: 'none' }}>
-                <div className="section__container">
-                    <p className="guest-greeting">Hola, {guestName}!</p>
-                    <p>Dispones de {guestSeats} asientos.</p>
-                </div>
-            </section>
-            <Head title="Nuestra Boda" />
-            <main>
-                <Date date={data.date} /> 
-                <Divider />
-                <Prayer prayer={data.prayer} />
-                <Divider />
-                <Timer date={data.date} />
-                <Location />
-                <Divider />
-                <DressCode />
-                <Photo src={PhotoMarriageProposal} alt="Propuesta de Matrimonio" />
-                <Itinerary />
-                <Divider />
-                <Parents />
-                <Photo src={PhotoLove} alt="Amor" style={{ objectPosition: 'top' }} />
-                <Confirmation />
-            </main>
-            <Footer />
-            <Divider />
-        </div>
+        <>
+            <Envelope guestName={guestName} guestSeats={guestSeats} onClick={() => openInvitation()} />
+
+            <div className="invitation">
+                <Head title="Nuestra Boda" />
+                <main>
+                    <Date date={data.date} /> 
+                    <Divider />
+                    <Prayer prayer={data.prayer} />
+                    <Divider type="flower" />
+                    <Timer date={data.date} />
+                    <Location />
+                    <Divider type="flower2" />
+                    <DressCode />
+                    <Photo src={PhotoMarriageProposal} alt="Propuesta de Matrimonio" />
+                    <Itinerary />
+                    <Divider type="flower3" />
+                    <Parents />
+                    <Photo src={PhotoLove} alt="Amor" style={{ objectPosition: 'top' }} />
+                    <Confirmation />
+                </main>
+                <Footer />
+                <Divider type="flower4" />
+            </div>
+        </>
     );
 }
 

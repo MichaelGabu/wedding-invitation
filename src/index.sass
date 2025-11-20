@@ -84,7 +84,7 @@ img
     color: var(--white-color)
 
 .invitation
-    display: flex
+    display: none
     flex-direction: column
     justify-content: center
     align-items: center
@@ -92,6 +92,9 @@ img
     width: 100%
     overflow-x: hidden
     position: relative
+
+    &--open
+        display: flex
 
     @media (width > 767px)
         background-color: var(--bg-color, white)
