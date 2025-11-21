@@ -1,13 +1,22 @@
 import './confirmation.sass';
 import Button from '../Button';
 
-const Confirmation = () => {
+interface ConfirmationProps {
+    phone?: number | string;
+}
+
+const phones = [
+    { value: 1, wp: 573016658720 },
+    { value: 2, wp: 573143744972 },
+]
+
+const Confirmation: React.FC<ConfirmationProps> = ({ phone }) => {
+    const number = phones.find((wp) => Number(phone) === wp.value)?.wp;
+    const text = 'Hola, quiero confirmar mi asistencia a la boda 💒💍';
+    const url = `https://api.whatsapp.com/send?phone=${number}&text=${encodeURIComponent(text)}`;
+    
     const confirm = () => {
-        const number = '573143744972';
-        const text = 'Hola, quiero confirmar mi asistencia a la boda 💒💍';
-        const url = `https://api.whatsapp.com/send?phone=${number}&text=${encodeURIComponent(text)}`;
-        
-        window.open(url, '_blank');
+        window.open(url, '_self');
     }
 
     return (

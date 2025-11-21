@@ -21,6 +21,7 @@ interface Guest {
     nombre: string;
     asientos: number;
     codigo: string;
+    celular: number;
 }
 
 const data = {
@@ -33,6 +34,7 @@ const data = {
 function App() {
     const [guestName, setGuestName] = useState('');
     const [guestSeats, setGuestSeats] = useState(0);
+    const [guestPhone, setGuestPhone] = useState(0);
     const [isValidGuest, setIsValidGuest] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -47,12 +49,15 @@ function App() {
                     const lines = csvText.split('\n');
                     const headers = lines[0].split(',').map(h => h.trim());
                     const guests: Guest[] = [];
+                    
                     for (let i = 1; i < lines.length; i++) {
                         const values = lines[i].split(',').map(v => v.trim());
                         const guest: any = {};
+                        
                         for (let j = 0; j < headers.length; j++) {
                             guest[headers[j]] = values[j];
                         }
+                        
                         guests.push({
                             ...guest,
                             asientos: parseInt(guest.asientos, 10)
@@ -64,6 +69,7 @@ function App() {
                     if (guest) {
                         setGuestName(guest.nombre);
                         setGuestSeats(guest.asientos);
+                        setGuestPhone(guest.celular);  // 👈 Agrega esta línea
                         setIsValidGuest(true);
                     }
                     setIsLoading(false);
@@ -110,7 +116,7 @@ function App() {
                     <Divider type="flower3" />
                     <Parents />
                     <Photo src={PhotoLove} alt="Amor" style={{ objectPosition: 'top' }} />
-                    <Confirmation />
+                    <Confirmation phone={guestPhone} />
                 </main>
                 <Footer />
                 <Divider type="flower4" />

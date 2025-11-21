@@ -98,7 +98,7 @@ const Location = () => {
 
     const openLocation = () => {
         const url = 'https://maps.app.goo.gl/PVnaaESyrrYWpgfq6';
-        window.open(url, '_blank');
+        window.open(url, '_self');
     }
 
     return (
