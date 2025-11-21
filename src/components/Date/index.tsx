@@ -25,7 +25,6 @@ const dateBox = (date: Date, className: string, highLight: boolean) => {
         </div>
     );
 }
-    
 
 const DateComponent: React.FC<DateProps> = ({ date }) => {
     // Parse the date string to a Date object
@@ -76,7 +75,13 @@ const DateComponent: React.FC<DateProps> = ({ date }) => {
                 opacity: [0, 1],
                 y: [50, 0],
                 delay: 350,
-                duration: 750
+                duration: 750,
+                easing: 'easeOutQuad',
+                autoplay: onScroll({
+                    enter: 'bottom-=10% top',
+					leave: 'top+=10% bottom',
+                    debug: false,
+                })
             });
 
             utils.set($year, {
@@ -87,7 +92,13 @@ const DateComponent: React.FC<DateProps> = ({ date }) => {
                 opacity: [0, 1],
                 y: [50, 0],
                 delay: 450,
-                duration: 750
+                duration: 750,
+                easing: 'easeOutQuad',
+                autoplay: onScroll({
+                    enter: 'bottom-=10% top',
+					leave: 'top+=10% bottom',
+                    debug: false,
+                })
             });
         });
 

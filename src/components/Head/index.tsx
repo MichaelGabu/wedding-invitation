@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { animate, createScope, utils, Scope } from 'animejs';
+import React, { useEffect, useRef } from "react";
+import { createScope, utils, animate, Scope } from 'animejs';
 import './head.sass';
 import logo from '../../assets/Logo-Natalia-y-Michael.svg';
 import foliage from '../../assets/images/head-foliage.webp';
@@ -24,12 +24,15 @@ const Head: React.FC<HeadProps> = ({ title }) => {
             const $foliageImageBottomLeft = utils.$('.head__deco--bottom-left .head__foliage-image');
 
             utils.set($logoImage, {
+                opacity: 0,
                 filter: 'blur(2rem)'
             });
             animate($logoImage, {
+                opacity: [0, 1],
                 filter: ['blur(2rem)', 'blur(0rem)'],
+                duration: 1050,
                 delay: 0,
-                duration: 1050
+                easing: 'easeOutQuad'
             });
 
             utils.set($title, {
@@ -40,7 +43,8 @@ const Head: React.FC<HeadProps> = ({ title }) => {
                 opacity: [0, 1],
                 y: [25, 0],
                 delay: 250,
-                duration: 750
+                duration: 750,
+                easing: 'easeOutQuad'
             });
 
             utils.set($divider, {
