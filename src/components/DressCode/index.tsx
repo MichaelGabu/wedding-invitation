@@ -14,7 +14,11 @@ const DressCode = () => {
                             <IconDress />
                         </div>
                         <h4 className="dresscode__subtitle">Ellas divinas</h4>
-                        <p className="dresscode__text">Vestido formal</p>
+                        <p className="dresscode__text">
+                            Vestido formal
+                            <br />
+                            (Se reserva color blanco y rojo)
+                        </p>
                     </div>
                     <hr className="dresscode__separator" />
                     <div className="dresscode__item">
@@ -24,7 +28,7 @@ const DressCode = () => {
                         </div>
                         <h4 className="dresscode__subtitle">Ellos guapos</h4>
                         <p className="dresscode__text">
-                            Vestido Formal
+                            Traje Formal
                             <br />
                             (Se reserva color azul y chaleco)
                         </p>

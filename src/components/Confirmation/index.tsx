@@ -27,7 +27,7 @@ const Confirmation: React.FC<ConfirmationProps> = ({ phone }) => {
                     <h4 className="confirmation__subtitle">Tu asistencia</h4>
                 </div>
                 
-                <Button label="Dando clic aquí" icon="tabler:calendar-heart" onClick={() => confirm()} />
+                <Button label="Confirmar" icon="tabler:calendar-heart" onClick={() => confirm()} />
             </div>
         </section>
     );

@@ -32,10 +32,10 @@ const Envelope: React.FC<EnvelopeProps> = ({ guestName, guestSeats, onClick }) =
                             </svg>
                             <strong>{guestSeats}</strong>
                         </div>
-                        <p className="envelope__seats-text">Lugares en tu honor</p>
+                        <p className="envelope__seats-text">{guestSeats === 1 ? 'Lugar' : 'Lugares'} en tu honor</p>
                     </div>
 
-                    <Button label="Ver invitación" onClick={onClick} />
+                    <Button label="Ver invitación" color="text" onClick={onClick} />
                 </div>
             </section>
         </div>

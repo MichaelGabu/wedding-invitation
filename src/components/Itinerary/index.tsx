@@ -45,8 +45,61 @@ const Itinerary = () => {
     useEffect(() => {
         scope.current = createScope({ root })
         scope.current.add(() => {
+            const $title = utils.$('.itinerary__title');
+            const $ornamentTop = utils.$('.itinerary__ornament-top');
+            const $ornamentBottom = utils.$('.itinerary__ornament-bottom');
             const $items = utils.$('.itinerary__item');
 
+            utils.set($title, {
+                y: 100,
+                opacity: 0,
+                filter: 'blur(2px)'
+            });
+            animate($title, {
+                y: [100, 0],
+                opacity: [0, 1],
+                filter: ['blur(2px)', 'blur(0px)'],
+                duration: 1000,
+                delay: 0,
+                easing: 'easeOutQuad',
+                autoplay: onScroll({
+                    enter: 'bottom-=10% top',
+                    leave: 'top+=10% bottom',
+                    debug: false,
+                })
+            });
+            utils.set($ornamentTop, {
+                scale: 0,
+                filter: 'blur(2px)'
+            });
+            animate($ornamentTop, {
+                scale: [0, 1],
+                filter: ['blur(2px)', 'blur(0px)'],
+                duration: 1000,
+                delay: 0,
+                easing: 'easeOut',
+                autoplay: onScroll({
+                    enter: 'bottom-=10% top',
+                    leave: 'top+=10% bottom',
+                    debug: false,
+                })
+            });
+            utils.set($ornamentBottom, {
+                scale: 0,
+                filter: 'blur(2px)'
+            });
+            animate($ornamentBottom, {
+                scale: [0, 1],
+                filter: ['blur(2px)', 'blur(0px)'],
+                duration: 1000,
+                delay: 0,
+                easing: 'easeOut',
+                autoplay: onScroll({
+                    enter: 'bottom-=10% top',
+                    leave: 'top+=10% bottom',
+                    debug: false,
+                })
+            });            
             utils.set($items, {
                 y: 100,
                 opacity: 0,

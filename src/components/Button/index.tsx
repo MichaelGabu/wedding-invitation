@@ -5,12 +5,13 @@ import './button.sass';
 interface ButtonProps {
     label: string;
     icon?: string;
+    color?: string;
     onClick: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ label, icon, onClick }) => {
+const Button: React.FC<ButtonProps> = ({ label, icon, color = 'default', onClick }) => {
     return (
-        <button className="button" onClick={onClick}>
+        <button className={`button button--color-${color}`} onClick={onClick}>
             {icon && <Icon icon={icon} />}
             <span className="button__text">{label}</span>
         </button>
