@@ -14,7 +14,7 @@
         width: 100%
 
     &__top
-        padding-block: var(--space-lg) var(--space-xl)
+        padding-block: var(--space-lg)
         padding-inline: var(--lateral-width)
         position: relative
         filter: drop-shadow(0 0 .5rem hsl(from var(--text-color) h s l / 0.5))
@@ -37,6 +37,7 @@
             mask-image: url('../../assets/images/envelope-mask-top.svg')
             mask-size: 110%
             mask-position: bottom center
+            mask-repeat: no-repeat
 
         &-container
             position: relative
@@ -50,27 +51,66 @@
         padding-block: calc(var(--space-xl) * 1.5) var(--space-lg)
         padding-inline: var(--lateral-width)
         position: relative
-        filter: drop-shadow(0 0 .5rem hsl(from var(--text-color) h s l / 0.5))
-        -webkit-filter: drop-shadow(0 0 .5rem hsl(from var(--text-color) h s l / 0.5))
         transition: all .75s ease-in-out, opacity 2s ease-in-out
         translate: 0 0%
         z-index: 1
 
-        &:before
-            content: ''
+        &-flip
+            filter: drop-shadow(0 0 .5rem hsl(from var(--text-color) h s l / 0.5))
+            -webkit-filter: drop-shadow(0 0 .5rem hsl(from var(--text-color) h s l / 0.5))
             position: absolute
-            inset-inline: 0
+            z-index: 1
             top: 0
+            left: 50%
+            translate: -50% 0
             width: 100%
-            height: 100dvh
-            background-image: url('../../assets/images/letter-texture.webp')
-            background-size: cover
-            background-position: center
+            height: 100%
+
+            &:after
+                content: ''
+                position: absolute
+                inset-inline: 0
+                top: 0
+                width: 100%
+                height: 100dvh
+                background-image: url('../../assets/images/letter-texture.webp')
+                background-size: cover
+                background-position: center
+                z-index: 0
+                pointer-events: none
+                mask-image: url('../../assets/images/envelope-mask-bottom.svg')
+                mask-size: 110%
+                mask-position: top center
+                mask-repeat: no-repeat
+        
+        &-flip-lateral
+            filter: drop-shadow(0 0 .5rem hsl(from var(--text-color) h s l / 0.5))
+            -webkit-filter: drop-shadow(0 0 .5rem hsl(from var(--text-color) h s l / 0.5))
+            position: absolute
             z-index: 0
-            pointer-events: none
-            mask-image: url('../../assets/images/envelope-mask-bottom.svg')
-            mask-size: 110%
-            mask-position: top center
+            top: 0
+            left: 50%
+            translate: -50% -8rem
+            width: 100%
+            height: 100%
+
+            &:after
+                content: ''
+                display: block
+                position: absolute
+                inset-inline: 0
+                top: 0
+                width: 100%
+                height: 100dvh
+                background-image: url('../../assets/images/letter-texture.webp')
+                background-size: cover
+                background-position: center
+                z-index: 0
+                pointer-events: none
+                mask-image: url('../../assets/images/envelope-mask-lateral.svg')
+                mask-size: 110%
+                mask-position: top center
+                mask-repeat: no-repeat
 
         &-container
             position: relative
@@ -79,7 +119,7 @@
             flex-direction: column
             justify-content: center
             align-items: center
-            gap: var(--space-md)
+            gap: var(--space-lg)
 
     &__logo
         width: 260px
@@ -110,18 +150,22 @@
     &__subtitle
         font-size: var(--h6-font-size)
         font-weight: 500
-        line-height: 1.2
+        line-height: 1.1
         margin-bottom: var(--space-xs)
         text-wrap: balance
 
     &__guest-name
         font-size: var(--h2-font-size)
         font-weight: 700
-        line-height: 1.2
+        line-height: 1.1
         margin-bottom: 0
         text-wrap: balance
+        width: min(100%, 350px)
 
     &__seats
+        display: grid
+        gap: var(--space-md)
+
         &-title
             font-size: var(--body-font-size)
             font-weight: 400
@@ -130,7 +174,7 @@
             text-wrap: balance
 
         &-number
-            display: flex
+            display: inline-flex
             align-items: center
             justify-content: center
             position: relative
@@ -140,8 +184,8 @@
                 top: 50%
                 left: 50%
                 translate: -50% -50%
-                width: 6rem
-                height: auto
+                width: auto
+                height: 120%
 
             > strong
                 font-family: serif
@@ -165,9 +209,9 @@
         pointer-events: none
 
         .envelope__top
-            translate: 0% -150%
+            translate: 0% -100dvh
             opacity: 0
 
         .envelope__bottom
-            translate: 0% 150%
+            translate: 0% 100dvh
             opacity: 0

@@ -1,17 +1,3 @@
-<svg width="1216" height="1984" viewBox="0 0 1216 1984" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_292_16932)">
-<path d="M8 8H1208V1539.65L636.691 1965.61C619.669 1978.3 596.331 1978.3 579.309 1965.61L8 1539.65V8Z" fill="white"/>
-</g>
-<defs>
-<filter id="filter0_d_292_16932" x="0" y="0" width="1216" height="1983.13" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset/>
-<feGaussianBlur stdDeviation="4"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.352941 0 0 0 0 0.192157 0 0 0 0 0.164706 0 0 0 0.5 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_292_16932"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_292_16932" result="shape"/>
-</filter>
-</defs>
+<svg width="1200" height="1966" viewBox="0 0 1200 1966" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0H1200V1706.13L654.171 1954.26C619.751 1969.91 580.249 1969.91 545.829 1954.26L0 1706.13V0Z" fill="white"/>
 </svg>

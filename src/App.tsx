@@ -14,6 +14,8 @@ import Footer from './components/Footer';
 import Divider from './components/Divider';
 import PhotoMarriageProposal from './assets/images/marriage-proposal.webp';
 import PhotoLove from './assets/images/love.webp';
+import Loading from './components/Loading';
+import NotFound from './components/NotFound';
 
 interface Guest {
     nombre: string;
@@ -72,25 +74,14 @@ function App() {
     }, []);
 
     if (isLoading) {
-        return <div className="invitation">
-            <section className="section">
-                <div className="section__container">
-                    <p>Cargando...</p>
-                </div>
-            </section>
-        </div>;
+        return (
+            <Loading />
+        )
     }
 
     if (!isValidGuest) {
         return (
-            <div className="invitation">
-                <section className="section">
-                    <div className="section__container">
-                        <h2>Invitación no encontrada</h2>
-                        <p>Por favor, verifica que el enlace que has utilizado es correcto.</p>
-                    </div>
-                </section>
-            </div>
+            <NotFound />
         );
     }
 

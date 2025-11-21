@@ -1,5 +1,7 @@
+import { useEffect, useRef } from "react";
+import { createScope, utils, animate, onScroll, Scope, stagger } from 'animejs';
 import './itinerary.sass';
-import { IconCeremony, IconPhotograph, IconDinner, IconCelebration, IconRings, IconWeddingRings } from '../Icons';
+import { IconWelcome, IconCeremony, IconPhotograph, IconDinner, IconCelebration, IconRings, IconWeddingRings } from '../Icons';
 import { OrnamentBottom } from '../Ornaments';
 import texture from '../../assets/images/itinerary-texture.webp';
 
@@ -37,7 +39,44 @@ const ShadowIcon = () => {
 };
 
 const Itinerary = () => {
+    const root = useRef<HTMLDivElement>(null);
+    const scope = useRef<Scope | null>(null);
+
+    useEffect(() => {
+        scope.current = createScope({ root })
+        scope.current.add(() => {
+            const $items = utils.$('.itinerary__item');
+
+            utils.set($items, {
+                y: 100,
+                opacity: 0,
+                filter: 'blur(2px)'
+            });
+            animate($items, {
+                y: [100, 0],
+                opacity: [0, 1],
+                filter: ['blur(2px)', 'blur(0px)'],
+                duration: 1000,
+                delay: stagger(100, { start: 0 } ),
+                easing: 'easeOutQuad',
+                autoplay: onScroll({
+                    enter: 'bottom-=10% top',
+                    leave: 'top+=10% bottom',
+                    debug: false,
+                })
+            });
+        });
+
+        return () => scope.current?.revert();
+    }, []);
+
     const itinerary = [
+        {
+            icon: <IconWelcome className="itinerary__icon-icon" />,
+            title: 'Entrada',
+            time: '3:00 pm',
+            description: 'Te esperamos con los brazos abiertos'
+        },
         {
             icon: <IconCeremony className="itinerary__icon-icon" />,
             title: 'Eucaristía',
@@ -77,7 +116,7 @@ const Itinerary = () => {
     ];
 
     return (
-        <section className="section itinerary">
+        <section className="section itinerary" ref={root}>
             <div className="section__container itinerary__container">
                 <figure className="itinerary__texture">
                     <img className="itinerary__texture-image" src={texture} alt="Texture" />

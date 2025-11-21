@@ -105,6 +105,18 @@ export const IconWeddingRings = ({ color = 'var(--primary-color)', className }: 
     )
 };
 
+export const IconWelcome = ({ color = 'var(--primary-color)', className }: IconProps) => {
+    return (
+        <svg className={ className } width="47" height="49" viewBox="0 0 47 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="14.2387" width="45.0151" height="33.7613" rx="4" stroke={ color } strokeMiterlimit="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <rect x="4.5" y="17.99" width="37.5126" height="26.2588" rx="2" stroke={ color } strokeMiterlimit="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M10.0076 14.2089L22.366 1.52819C23.1725 0.700681 24.5104 0.726788 25.2839 1.58512L36.6612 14.2089" stroke={ color }/>
+            <path d="M12.5 33.1004L14.5365 31.0638C15.5154 30.085 17.1891 30.7782 17.1891 32.1626C17.1891 33.5469 18.8628 34.2401 19.8416 33.2613L22.6453 30.4576C23.7465 29.3564 25.6294 30.1363 25.6294 31.6936C25.6294 33.251 27.5123 34.0309 28.6135 32.9297L34.0697 27.4735" stroke={ color }/>
+            <ellipse cx="23.8832" cy="3.02965" rx="1.87563" ry="1.87563" stroke={ color }/>
+        </svg>
+    )
+}
+
 export const IconEnvelope = ({ color = 'var(--primary-color)', className }: IconProps) => {
     return (
         <svg className={ className } width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">

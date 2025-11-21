@@ -1,0 +1,31 @@
+.notFound
+    background-image: url('../../assets/images/letter-texture.webp')
+    background-size: cover
+    background-position: center
+    min-height: 100dvh
+    display: flex
+    justify-content: center
+    align-items: center
+
+    &__container
+        mix-blend-mode: multiply
+        -webkit-mix-blend-mode: multiply
+        display: grid
+        place-items: center
+        place-content: center
+        gap: var(--space-md)
+        width: min(100%, 300px) !important
+
+    &__title
+        color: var(--primary-color)
+        font-size: var(--h2-font-size)
+        font-weight: 700
+        margin: 0
+        line-height: 1.1
+
+    &__text
+        color: var(--text-color)
+        font-size: var(--body-font-size)
+        font-weight: 400
+        margin: 0
+        text-wrap: balance

@@ -14,15 +14,16 @@ const Envelope: React.FC<EnvelopeProps> = ({ guestName, guestSeats, onClick }) =
         <div className="envelope">
             <section className="envelope__top">
                 <div className="envelope__top-container">
-                    <h2 className="envelope__title">Nuestra Boda</h2>
+                    {/* <h2 className="envelope__title">Nuestra Boda</h2> */}
                     <span className="envelope__subtitle">Invitación para:</span>
                     <h3 className="envelope__guest-name">{guestName}</h3>
                 </div>
                 <img src={stamp} alt="Sello" loading="eager" className="envelope__stamp" />
             </section>
             <section className="envelope__bottom">
+                <div className="envelope__bottom-flip"></div>
+                <div className="envelope__bottom-flip-lateral"></div>
                 <div className="envelope__bottom-container">
-                    <Button label="Ver invitación" onClick={onClick} />
                     <div className="envelope__seats">
                         <h3 className="envelope__seats-title">Hemos reservado</h3>
                         <div className="envelope__seats-number">
@@ -33,6 +34,8 @@ const Envelope: React.FC<EnvelopeProps> = ({ guestName, guestSeats, onClick }) =
                         </div>
                         <p className="envelope__seats-text">Lugares en tu honor</p>
                     </div>
+
+                    <Button label="Ver invitación" onClick={onClick} />
                 </div>
             </section>
         </div>

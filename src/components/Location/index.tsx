@@ -96,6 +96,11 @@ const Location = () => {
         return () => scope.current?.revert();
     }, []);
 
+    const openLocation = () => {
+        const url = 'https://maps.app.goo.gl/PVnaaESyrrYWpgfq6';
+        window.open(url, '_blank');
+    }
+
     return (
         <section className="section location" ref={root}>
             <figure className="location__bg">
@@ -108,7 +113,7 @@ const Location = () => {
                     <p className="location__address">Vía Subachoque - El Rosal</p>
                 </div>
                 <div className="loaction__actions">
-                    <Button label="Ver ubicación" icon="tabler:map-pin-heart" onClick={() => {}} />
+                    <Button label="Ver ubicación" icon="tabler:map-pin-heart" onClick={() => openLocation()} />
                 </div>
             </div>
         </section>
