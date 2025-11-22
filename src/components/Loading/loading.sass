@@ -1,11 +1,16 @@
 .loading
-    background-image: url('../../assets/images/letter-texture.webp')
-    background-size: cover
-    background-position: center
     min-height: 100dvh
     display: flex
     justify-content: center
     align-items: center
+
+    &__bg
+        object-fit: cover
+        position: fixed
+        inset: 0
+        z-index: 0
+        width: 100%
+        height: 100%
 
     &__container
         mix-blend-mode: multiply
@@ -14,6 +19,8 @@
         place-items: center
         place-content: center
         gap: var(--space-md)
+        z-index: 1
+        position: relative
 
         > p
             color: var(--primary-color)
@@ -23,6 +30,8 @@
             
 
     &__svg
+        width: 70px
+        height: auto
         stroke-linejoin: round
         stroke-linecap: round
         stroke-dashoffset: 400

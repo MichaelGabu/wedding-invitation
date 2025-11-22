@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { createScope, utils, animate, onScroll, Scope, stagger } from 'animejs';
 import './itinerary.sass';
-import { IconWelcome, IconCeremony, IconPhotograph, IconDinner, IconCelebration, IconRings, IconWeddingRings } from '../Icons';
+import { IconWelcome, IconCeremony, IconPhotograph, IconDinner, IconCelebration, IconRings, IconWeddingRings, IconToast } from '../Icons';
 import { OrnamentBottom } from '../Ornaments';
 import texture from '../../assets/images/itinerary-texture.webp';
 
@@ -136,12 +136,6 @@ const Itinerary = () => {
             time: '4:00 pm',
             description: 'Asiste a nuestra reunión para siempre'
         },
-        // {
-        //     icon: <IconToast className="itinerary__icon-icon" />,
-        //     title: 'Brindis',
-        //     time: '5:00 pm',
-        //     description: 'Levantemos la copa por nuestra historia y lo que viene'
-        // },
         {
             icon: <IconPhotograph className="itinerary__icon-icon" />,
             title: 'Photocall',
@@ -149,15 +143,21 @@ const Itinerary = () => {
             description: 'Guardemos este momento inolvidable'
         },
         {
+            icon: <IconToast className="itinerary__icon-icon" />,
+            title: 'Brindis',
+            time: '6:00 pm',
+            description: 'Levantemos la copa por nuestra historia y lo que viene'
+        },
+        {
             icon: <IconDinner className="itinerary__icon-icon" />,
             title: 'Cena',
-            time: '6:00 pm',
+            time: '7:00 pm',
             description: 'Cenar juntos hace este día más especial'
         },
         {
             icon: <IconCelebration className="itinerary__icon-icon" />,
             title: 'Celebración',
-            time: '7:00 pm',
+            time: '8:00 pm',
             description: 'Que cada paso sea una sola felicidad compartida'
         },
         {

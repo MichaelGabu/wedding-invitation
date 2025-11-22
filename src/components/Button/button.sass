@@ -1,6 +1,8 @@
 .button
-    --button-bg: linear-gradient(in oklch to right, var(--primary-color) 0%, hsl(from var(--secondary-color) h s calc(l - 5)) 99%)
+    // --button-bg: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 99%)
+    --button-bg: var(--primary-color)
     --button-color: var(--white-color)
+    background-color: var(--primary-color, black)
     background: var(--button-bg)
     color: var(--button-color)
     display: inline-flex

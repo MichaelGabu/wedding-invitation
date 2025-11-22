@@ -1,6 +1,7 @@
 import React from 'react';
 import './envelope.sass';
-import stamp from '../../assets/images/stamp.webp';
+import stamp from '/stamp.webp';
+import letterTexture from '/letter-texture.webp';
 import Button from '../Button';
 
 interface EnvelopeProps {
@@ -13,6 +14,13 @@ const Envelope: React.FC<EnvelopeProps> = ({ guestName, guestSeats, onClick }) =
     return (
         <div className="envelope">
             <section className="envelope__top">
+                <img 
+                    fetchPriority="high"
+                    src={letterTexture} 
+                    alt="" 
+                    loading="eager" 
+                    className="envelope__top-flip-texture" 
+                />
                 <div className="envelope__top-container">
                     {/* <h2 className="envelope__title">Nuestra Boda</h2> */}
                     <span className="envelope__subtitle">Invitación para:</span>
@@ -21,8 +29,24 @@ const Envelope: React.FC<EnvelopeProps> = ({ guestName, guestSeats, onClick }) =
                 <img src={stamp} alt="Sello" loading="eager" className="envelope__stamp" />
             </section>
             <section className="envelope__bottom">
-                <div className="envelope__bottom-flip"></div>
-                <div className="envelope__bottom-flip-lateral"></div>
+                <div className="envelope__bottom-flip">
+                    <img 
+                        fetchPriority="high"
+                        src={letterTexture} 
+                        alt="" 
+                        loading="eager" 
+                        className="envelope__bottom-flip-texture" 
+                    />
+                </div>
+                <div className="envelope__bottom-flip-lateral">
+                    <img 
+                        fetchPriority="high"
+                        src={letterTexture} 
+                        alt="" 
+                        loading="eager" 
+                        className="envelope__bottom-flip-lateral-texture" 
+                    />
+                </div>
                 <div className="envelope__bottom-container">
                     <div className="envelope__seats">
                         <h3 className="envelope__seats-title">Hemos reservado</h3>

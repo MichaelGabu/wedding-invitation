@@ -84,9 +84,9 @@ const DressCode = () => {
                         </div>
                         <h4 className="dresscode__subtitle">Ellas divinas</h4>
                         <p className="dresscode__text">
-                            Vestido formal
+                            Formal
                             <br />
-                            (Se reserva color blanco y rojo)
+                            (Se reserva color blanco)
                         </p>
                     </div>
                     <hr className="dresscode__separator" />

@@ -13,7 +13,7 @@ const Footer = () => {
                         <IconEnvelope className="footer__rainenvelopes-icon-icon" />
                     </div>
                     
-                    <span className="footer__rainenvelopes-text">Luvia de sobres</span>
+                    <span className="footer__rainenvelopes-text">Lluvia de sobres</span>
                 </div>
 
                 <div className="footer__prayer">

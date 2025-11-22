@@ -1,11 +1,16 @@
 .notFound
-    background-image: url('../../assets/images/letter-texture.webp')
-    background-size: cover
-    background-position: center
     min-height: 100dvh
     display: flex
     justify-content: center
     align-items: center
+
+    &__bg
+        object-fit: cover
+        position: fixed
+        inset: 0
+        z-index: 0
+        width: 100%
+        height: 100%
 
     &__container
         mix-blend-mode: multiply

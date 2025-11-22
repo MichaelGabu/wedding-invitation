@@ -106,6 +106,8 @@ function App() {
                     <Date date={data.date} /> 
                     <Divider />
                     <Prayer prayer={data.prayer} />
+                    <Photo src={PhotoLove} alt="Amor" style={{ objectPosition: 'top' }} />
+                    <Parents />
                     <Divider type="flower" />
                     <Timer date={data.date} />
                     <Location />
@@ -113,13 +115,11 @@ function App() {
                     <DressCode />
                     <Photo src={PhotoMarriageProposal} alt="Propuesta de Matrimonio" />
                     <Itinerary />
-                    <Divider type="flower3" />
-                    <Parents />
-                    <Photo src={PhotoLove} alt="Amor" style={{ objectPosition: 'top' }} />
+                    <Footer />
+                    <Divider type="flower" />
                     <Confirmation phone={guestPhone} />
+                    <Divider type="flower4" />
                 </main>
-                <Footer />
-                <Divider type="flower4" />
             </div>
         </>
     );

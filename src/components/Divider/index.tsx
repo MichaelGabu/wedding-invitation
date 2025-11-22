@@ -107,7 +107,7 @@ const Divider: React.FC<DividerProps> = ({ type = 'ornament' }) => {
                 easing: 'easeOutQuad',
                 autoplay: onScroll({
                     enter: 'bottom-=0% top',
-                    leave: 'top+=10% bottom',
+                    leave: 'top+=0% bottom',
                     debug: false,
                 })
             });
