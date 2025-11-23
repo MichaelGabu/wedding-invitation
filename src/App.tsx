@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Envelope from './components/Envelope';
 import Head from './components/Head';
 import Date from './components/Date';
@@ -16,6 +16,7 @@ import PhotoMarriageProposal from './assets/images/marriage-proposal.webp';
 import PhotoLove from './assets/images/love.webp';
 import Loading from './components/Loading';
 import NotFound from './components/NotFound';
+import Audio from './components/Audio';
 
 interface Guest {
     nombre: string;
@@ -37,6 +38,8 @@ function App() {
     const [guestPhone, setGuestPhone] = useState(0);
     const [isValidGuest, setIsValidGuest] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+
+    const audioRef = React.useRef<HTMLAudioElement>(null);
 
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
@@ -94,6 +97,10 @@ function App() {
     const openInvitation = () => {
         document.querySelector('.envelope')?.classList.add('envelope--open');
         document.querySelector('.invitation')?.classList.add('invitation--open');
+        if (audioRef.current) {
+            audioRef.current.currentTime = 20;
+        }
+        audioRef.current?.play();
     }
 
     return (
@@ -106,6 +113,7 @@ function App() {
                     <Date date={data.date} /> 
                     <Divider />
                     <Prayer prayer={data.prayer} />
+                    <Audio audioRef={audioRef} />
                     <Photo src={PhotoLove} alt="Amor" style={{ objectPosition: 'top' }} />
                     <Parents />
                     <Divider type="flower" />

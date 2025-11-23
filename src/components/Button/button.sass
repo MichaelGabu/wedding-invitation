@@ -55,7 +55,7 @@
     & iconify-icon
         font-size: 1.5em
         flex: 0 0 1.5rem
-        width: 1.5rem
+        // width: 1.5rem
         aspect-ratio: 1 / 1
         // filter: drop-shadow(1px 1px 2px var(--primary-color))
         position: relative
@@ -64,5 +64,22 @@
     &--color-text
         --button-bg: var(--text-color, black)
         --button-color: var(--white-color, white)
+
+    &--icon
+        padding: 1em
+    
+    &--type
+        &-outlined
+            background-color: hsl(from var(--button-bg) h s l / .05)
+            border: 1px solid var(--button-bg)
+            color: var(--button-bg)
+            box-shadow: none
+
+            &:hover,
+            &:focus
+                color: var(--button-bg)
+
+            &:before
+                display: none
         
     
