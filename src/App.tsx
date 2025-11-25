@@ -113,7 +113,7 @@ function App() {
                     <Date date={data.date} /> 
                     <Divider />
                     <Prayer prayer={data.prayer} />
-                    <Audio audioRef={audioRef} />
+                    <Audio audioRef={audioRef} song={guestPhone} />
                     <Photo src={PhotoLove} alt="Amor" style={{ objectPosition: 'top' }} />
                     <Parents />
                     <Divider type="flower" />

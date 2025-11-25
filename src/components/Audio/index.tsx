@@ -1,20 +1,29 @@
 import React, { useState } from "react";
-import audio from '../../assets/audio/Violin-Cover-Ed-Sheeran.mp3'
+import audio from '../../assets/audio/perfect-violin.mp3'
+import audio2 from '../../assets/audio/thousand-years-violin.mp3'
+import audio3 from '../../assets/audio/coldplay-viva-la-vida-violin-optimized.mp3'
 import Button from "../Button";
 import './audio.sass'
 
 interface AudioProps {
     audioRef: React.RefObject<HTMLAudioElement | null>;
+    song?: number | string;
 }
 
-const Audio = ({ audioRef }: AudioProps) => {
+const audios = [
+    { value: 1, audio: audio },
+    { value: 2, audio: audio2 },
+    { value: 3, audio: audio3 }
+]
+
+const Audio: React.FC<AudioProps> = ({ audioRef, song = 1 }) => {
     const [isPlaying, setIsPlaying] = useState(true);
 
     return (
         <section className="section audio">
             <div className="section__container audio__container">
                 <audio ref={audioRef || undefined}>
-                    <source src={audio} type="audio/mp3" />
+                    <source src={audios.find((audio) => Number(song) === audio.value)?.audio} type="audio/mp3" />
                 </audio>
                 <Button
                     onClick={() => {
