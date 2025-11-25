@@ -134,7 +134,7 @@ const Itinerary = () => {
             icon: <IconCeremony className="itinerary__icon-icon" />,
             title: 'Eucaristía',
             time: '4:00 pm',
-            description: 'Asiste a nuestra reunión para siempre'
+            description: 'Asiste a nuestra unión para siempre'
         },
         {
             icon: <IconPhotograph className="itinerary__icon-icon" />,

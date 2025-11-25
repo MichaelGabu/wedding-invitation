@@ -98,7 +98,7 @@ function App() {
         document.querySelector('.envelope')?.classList.add('envelope--open');
         document.querySelector('.invitation')?.classList.add('invitation--open');
         if (audioRef.current) {
-            audioRef.current.currentTime = 20;
+            audioRef.current.currentTime = 0;
         }
         audioRef.current?.play();
     }
@@ -124,7 +124,7 @@ function App() {
                     <Photo src={PhotoMarriageProposal} alt="Propuesta de Matrimonio" />
                     <Itinerary />
                     <Footer />
-                    <Divider type="flower" />
+                    {/* <Divider type="flower" /> */}
                     <Confirmation phone={guestPhone} />
                     <Divider type="flower4" />
                 </main>

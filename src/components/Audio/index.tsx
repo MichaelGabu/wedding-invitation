@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import audio from '../../assets/audio/audio.mp3'
+import audio from '../../assets/audio/Violin-Cover-Ed-Sheeran.mp3'
 import Button from "../Button";
 import './audio.sass'
 
@@ -13,8 +13,8 @@ const Audio = ({ audioRef }: AudioProps) => {
     return (
         <section className="section audio">
             <div className="section__container audio__container">
-                <audio ref={audioRef || undefined} autoPlay loop>
-                    <source src={audio} type="audio/mpeg" />
+                <audio ref={audioRef || undefined}>
+                    <source src={audio} type="audio/mp3" />
                 </audio>
                 <Button
                     onClick={() => {

@@ -21,7 +21,6 @@ const Divider: React.FC<DividerProps> = ({ type = 'ornament' }) => {
             const $dividerFlower1 = utils.$('.divider--flower .divider__container');
             const $dividerFlower2 = utils.$('.divider--flower2 .divider__container');
             const $dividerFlower3 = utils.$('.divider--flower3 .divider__container');
-            const $dividerFlower4 = utils.$('.divider--flower4 .divider__container');
 
             utils.set($divider, {
                 clipPath: 'polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%)',
@@ -90,24 +89,6 @@ const Divider: React.FC<DividerProps> = ({ type = 'ornament' }) => {
                 autoplay: onScroll({
                     enter: 'bottom-=2% top',
                     leave: 'top+=2% bottom',
-                    debug: false,
-                })
-            });
-
-            utils.set($dividerFlower4, {
-                opacity: 0,
-                scale: 0,
-                transformOrigin: 'bottom center',
-            });
-            animate($dividerFlower4, {
-                opacity: [0, 1],
-                scale: [0, 1],
-                duration: 1000,
-                delay: 0,
-                easing: 'easeOutQuad',
-                autoplay: onScroll({
-                    enter: 'bottom-=0% top',
-                    leave: 'top+=0% bottom',
                     debug: false,
                 })
             });
