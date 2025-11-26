@@ -23,6 +23,7 @@ interface Guest {
     asientos: number;
     codigo: string;
     celular: number;
+    cancion: number;
 }
 
 const data = {
@@ -36,6 +37,7 @@ function App() {
     const [guestName, setGuestName] = useState('');
     const [guestSeats, setGuestSeats] = useState(0);
     const [guestPhone, setGuestPhone] = useState(0);
+    const [guestSong, setGuestSong] = useState(1);
     const [isValidGuest, setIsValidGuest] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -73,6 +75,7 @@ function App() {
                         setGuestName(guest.nombre);
                         setGuestSeats(guest.asientos);
                         setGuestPhone(guest.celular);  // 👈 Agrega esta línea
+                        setGuestSong(guest.cancion);
                         setIsValidGuest(true);
                     }
                     setIsLoading(false);
@@ -113,7 +116,7 @@ function App() {
                     <Date date={data.date} /> 
                     <Divider />
                     <Prayer prayer={data.prayer} />
-                    <Audio audioRef={audioRef} song={guestPhone} />
+                    <Audio audioRef={audioRef} song={guestSong} />
                     <Photo src={PhotoLove} alt="Amor" style={{ objectPosition: 'top' }} />
                     <Parents />
                     <Divider type="flower" />

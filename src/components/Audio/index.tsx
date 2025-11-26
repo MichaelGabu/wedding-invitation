@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import audio from '../../assets/audio/perfect-violin.mp3'
 import audio2 from '../../assets/audio/thousand-years-violin.mp3'
-import audio3 from '../../assets/audio/coldplay-viva-la-vida-violin-optimized.mp3'
+import audio3 from '../../assets/audio/coldplay-viva-la-vida-violin.mp3'
+import audio4 from '../../assets/audio/die-with-a-smile-violin.mp3'
 import Button from "../Button";
 import './audio.sass'
 
@@ -13,7 +14,8 @@ interface AudioProps {
 const audios = [
     { value: 1, audio: audio },
     { value: 2, audio: audio2 },
-    { value: 3, audio: audio3 }
+    { value: 3, audio: audio3 },
+    { value: 4, audio: audio4 }
 ]
 
 const Audio: React.FC<AudioProps> = ({ audioRef, song = 1 }) => {
